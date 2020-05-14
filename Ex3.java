@@ -21,22 +21,26 @@ public class Ex3 {
         int reminder = 0;
 
         while(it1.hasPrevious() && it2.hasPrevious()){
-             reminder = 0;
+
             val1 = it1.previous();
             val2 = it2.previous();
 
             val3 = val1 + val2;
-            reminder = val3/10;
 
-            result.addFirst(val3+reminder);
+
+            result.addFirst(val3%10+reminder);
+            reminder = val3/10;
 
         }
 
-        ListIterator<Integer> it3 = op2.listIterator(op2.size()-op1.size()-1);
-        while(it2.hasPrevious()){
+            while (it2.hasPrevious()) {
 
-            result.addFirst(it2.previous()+reminder);
+                result.addFirst(it2.previous() + reminder);
 
+
+        }
+        if(reminder!= 0){
+            result.addFirst(reminder);
         }
         return result;
 
